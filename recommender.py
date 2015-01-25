@@ -14,14 +14,14 @@ def isbn(year, month, day):
   pi_start = year + month + day
   max_range = 100
   try:
-    pi_url = "http://pidigitsapi.com/api?startdigit=" + str(pi_start) + "&enddigit=" + str(pi_start + 8 + max_range)
+    pi_url = "http://pidigitsapi.com/api?startdigit=" + str(pi_start) + "&enddigit=" + str(pi_start + 6 + max_range)
     isbn_seed = str(loads(get(pi_url).text)["output"]["digits"])
   except:
     return "Failed to get digits of pi!"
 
   for i in range (max_range):
-    isbn_val = isbn_seed[i:i+8+1]
-    isbn_val = "978" + isbn_val
+    isbn_val = isbn_seed[i:i+6+1]
+    isbn_val = "97809" + isbn_val
 
     check_digit = 0
     check_sum = 0
